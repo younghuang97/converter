@@ -1,0 +1,128 @@
+{
+    "data": [
+        {
+            "label": "Australian dollar",
+            "value": "AUD"
+        },
+        {
+            "label": "Brazilian real",
+            "value": "BRL"
+        },
+        {
+            "label": "British pound",
+            "value": "GBP"
+        },
+        {
+            "label": "Bulgarian lev",
+            "value": "BGN"
+        },
+        {
+            "label": "Canadian dollar",
+            "value": "CAD"
+        },
+        {
+            "label": "Chinese yuan renminbi",
+            "value": "CNY"
+        },
+        {
+            "label": "Croatian kuna",
+            "value": "HRK"
+        },
+        {
+            "label": "Czech koruna",
+            "value": "CZK"
+        },
+        {
+            "label": "Danish krone",
+            "value": "DKK"
+        },
+        {
+            "label": "Hong Kong SAR dollar",
+            "value": "HKD"
+        },
+        {
+            "label": "Hungarian forint",
+            "value": "HUF"
+        },
+        {
+            "label": "Indian rupee",
+            "value": "INR"
+        },
+        {
+            "label": "Indonesian rupiah",
+            "value": "IDR"
+        },
+        {
+            "label": "Israeli new shekel",
+            "value": "ILS"
+        },
+        {
+            "label": "Japanese yen",
+            "value": "JPY"
+        },
+        {
+            "label": "Malaysian ringgit",
+            "value": "MYR"
+        },
+        {
+            "label": "Mexican peso",
+            "value": "MXN"
+        },
+        {
+            "label": "New Zealand dollar",
+            "value": "NZD"
+        },
+        {
+            "label": "Norwegian krone",
+            "value": "NOK"
+        },
+        {
+            "label": "Philippine peso",
+            "value": "PHP"
+        },
+        {
+            "label": "Polish zloty",
+            "value": "PLN"
+        },
+        {
+            "label": "Romanian new leu",
+            "value": "RON"
+        },
+        {
+            "label": "Russian ruble",
+            "value": "RUB"
+        },
+        {
+            "label": "Singapore dollar",
+            "value": "SGD"
+        },
+        {
+            "label": "South African rand",
+            "value": "ZAR"
+        },
+        {
+            "label": "South Korean won",
+            "value": "KRW"
+        },
+        {
+            "label": "Swedish krona",
+            "value": "SEK"
+        },
+        {
+            "label": "Swiss franc",
+            "value": "CHF"
+        },
+        {
+            "label": "Thai baht",
+            "value": "THB"
+        },
+        {
+            "label": "Turkish lira",
+            "value": "TRY"
+        },
+        {
+            "label": "US dollar",
+            "value": "USD"
+        }
+    ]
+}
