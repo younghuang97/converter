@@ -20,12 +20,12 @@ export default class ConversionListView extends React.Component {
         }
     }
 
-    // grabs currency rates right after the tool is instantiated
+    // grabs currency rates right when the tool is instantiated
     componentDidMount() {
         fetch('https://api.fixer.io/latest')
             .then((resp) => resp.json())
             .then((data) => {
-                // if connected to internet
+                // if connected to internet, grab rates from web and store it in local db
                 money.rates = data.rates
                 let pairsOfData = []
                 for (let label in data.rates) {
@@ -35,25 +35,26 @@ export default class ConversionListView extends React.Component {
                     if (err)
                         console.error(err)
                 })
-                this.setState({convOpts: this.state.convOpts.concat(["currency"])})
             })
-            .catch(() => {
-                // if not connected to internet
+            .catch(async () => {
+                // if not connected to internet, grab rates from local db
                 let data = currOpts.data
                 for (let i in data) {
                     let label = currOpts.data[i].value
-                    AsyncStorage.getItem(label, (err, res) => {
-                        if (err)
+                    await AsyncStorage.getItem(label, (err, res) => {
+                        if (err) {
                             console.error(err)
-                        else
+                        }
+                        else if (res != null)
                             money.rates[label] = res
-                        console.log(label, res)
                     })
                 }
-                if (Object.keys(money.rates).length > 0)
+            })
+            .then(() => {
+                // if we have the rates, display the currency option
+                if (Object.keys(money.rates).length > 0) 
                     this.setState({convOpts: this.state.convOpts.concat(["currency"])})
             })
-        // adds currency option if able to pull data from local db or from the web
     }
 
     /* converts value from base units to desired unit
