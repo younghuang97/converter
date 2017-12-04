@@ -103,6 +103,40 @@ export default class ConversionListView extends React.Component {
         }
     }
 
+    /* https://stackoverflow.com/questions/32946793/react-native-textinput-that-only-accepts-numeric-characters
+       Credit to Venkatesh Somu
+       Method only allows user to input numbers and a single period
+     */
+    onChanged(text) {
+        let newText = '';
+        let numbers = '0123456789';
+        let count = 0;
+
+        for (var i=0; i < text.length; i++) {    
+            if(numbers.indexOf(text[i]) > -1)
+                newText = newText + text[i];
+            else if (text[i] === '.') { 
+                count += 1;
+                if (count >= 2)
+                    alert("Please don't enter more than 1 decimal point.");
+                else
+                    newText = newText + text[i];                   
+            }
+            else {
+                alert("Please enter numbers or a decimal point only.");
+            }
+        }
+        return newText;
+    }
+
+    // modifies parseFloat so it doesn't return NaN when the input is null
+    parseFloat(num) {
+        if (num == '') 
+            return num;
+        else 
+            return parseFloat(num);
+    }
+
     render() {
         return (
             <View>
@@ -129,9 +163,10 @@ export default class ConversionListView extends React.Component {
                         underlineColorAndroid='transparent'
                         value={this.state.amt1.toString()}
                         onChangeText={(text) => {
-                            let x = this.convert(this.state.conv, text, this.state.picker1, this.state.picker2)
-                            let parseText = text != '' ? parseFloat(text) : text
-                            this.setState({amt2: x, amt1: parseText})
+                            let parseInput = this.onChanged(text)
+                            let converted = this.parseFloat(this.convert(this.state.conv,
+                                 parseInput, this.state.picker1, this.state.picker2))
+                            this.setState({amt2: converted, amt1: parseInput})
                         }}
                     />
                     <Picker
@@ -151,9 +186,10 @@ export default class ConversionListView extends React.Component {
                         underlineColorAndroid='transparent'
                         value={this.state.amt2.toString()}
                         onChangeText={(text) => {
-                            let x = this.convert(this.state.conv, text, this.state.picker2, this.state.picker1)
-                            let parseText = text != '' ? parseFloat(text) : text
-                            this.setState({amt1: x, amt2: parseText})
+                            let parseInput = this.onChanged(text)
+                            let converted = this.parseFloat(this.convert(this.state.conv,
+                                 parseInput, this.state.picker2, this.state.picker1))
+                            this.setState({amt1: converted, amt2: parseInput})
                         }}
                     />
                     <Picker

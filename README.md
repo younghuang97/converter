@@ -9,7 +9,6 @@ npm install --save convert-units
 
 ## Still need to fix these, so don't do these for the demo ##
 ```
-Using invalid characters
 When offline, currency option is added on 2nd rendering of component
 ```
 
